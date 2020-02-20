@@ -76,7 +76,7 @@ def reverse(array, length)
   (length/2).times do |index|
     temp = array[index]
     array[index] = array[length - 1 - index]
-    array[length -1 -index] = temp
+    array[length - 1 - index] = temp
   end 
   return array 
 end
@@ -136,5 +136,17 @@ def sort(array, length)
     end
   end
 end
+
+
+def find_max(array, length)
+  return nil if length == 0
+  max = array[0] 
+  length.times do |i| 
+    if array[i] >  max
+      max = array[i] 
+    end 
+  end 
+  return max 
+end 
 #puts reverse([1, 2, 3, 4], 4)
 #puts reverse([1, 2, 3, 4, 5], 5)
