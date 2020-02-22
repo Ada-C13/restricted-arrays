@@ -22,10 +22,6 @@ end
 # Time complexity: O(n), because we need to loop through each element of the array.
 # Space complexity: O(1), because we are not creating additional array, we are just printing the values.
 def print_array(array)
-  if length(array) < 1
-    raise ArgumentError.new, "Array cannot be empty"
-  end
-
   array.length.times do |i|
     print array[i]
   end
@@ -37,10 +33,6 @@ end
 # to find out whether the value is present in the array or not.
 # Space complexity: O(1), because we don't create a new array, we are just returning true or false.
 def search(array, length, value_to_find)
-  if length < 1
-    return false
-  end
-
   length.times do |i|
     if array[i] == value_to_find
       return true
@@ -56,14 +48,6 @@ end
 # to find the largest number.
 # Space complexity: O(1), because we don't create a new array, we are just returning the largest integer.
 def find_largest(array, length)
-  if length < 1
-    raise ArgumentError.new, "Array cannot be empty"
-  end
-
-  if length == 1
-    return array[0]
-  end
-
   largest_integer = array[0]
   length.times do |i|
     if largest_integer < array[i]
@@ -80,14 +64,6 @@ end
 # to find the smallest number.
 # Space complexity: O(1), because we don't create a new array, we are just returning the smallest integer.
 def find_smallest(array, length)
-  if length < 1
-    raise ArgumentError.new, "Array cannot be empty"
-  end
-
-  if length == 1
-    return array[0]
-  end
-
   smallest_integer = array[0]
   length.times do |i|
     if smallest_integer > array[i]
@@ -103,14 +79,6 @@ end
 # the end result will be O(n).
 # Space complexity: O(1), because we are reversing an array in place, thus we are not creating a new one.
 def reverse(array, length)
-  if length < 1
-    raise ArgumentError.new, "Array cannot be empty"
-  end
-
-  if length == 1
-    return array
-  end
-
   first_index = 0
   last_index = length - 1
 
@@ -132,10 +100,6 @@ end
 # to find the value we are looking for.
 # Space complexity: O(1), since we are not creating a new data structure, we are just returning true or false.
 def binary_search(array, length, value_to_find)
-  if length == 0
-    return false
-  end
-  
   min_index = array[0]
   max_index = length - 1
 
