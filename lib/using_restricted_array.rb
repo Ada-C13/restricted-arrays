@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ? Linear Search, n = size of the array
-# Space complexity: ?
+# Time complexity: O(n) Linear Search, n = size of the array
+# Space complexity: ? 
 def length(array)
   index = 0
   while array[index] != nil do
@@ -17,7 +17,7 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ? Linear Search, n = size of the array
+# Time complexity: O(n) Linear Search, n = size of the array
 # Space complexity: ?
 def print_array(array)
   index = 0
