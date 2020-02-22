@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def length(array)
   count = 0
 
@@ -19,8 +19,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
   length(array).times do |i|
     puts array[i]
@@ -29,8 +29,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, length, value_to_find)
   length.times do |i|
     return true if array[i] == value_to_find
@@ -40,8 +40,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
   max = array[0]
 
@@ -56,8 +56,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
   min = array[0]
 
@@ -71,8 +71,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def reverse(array, length)
   first = 0
   last = length - 1
@@ -88,11 +88,11 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn)
+  # if searching for min or max value, time complexity: O(1)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   midpoint = length / 2
-  count = 0
 
   if array[0] == value_to_find || array[length-1] == value_to_find
     return true
@@ -100,17 +100,14 @@ def binary_search(array, length, value_to_find)
 
   midpoint.times do |i|
     if array[midpoint] == value_to_find
-      puts count
       return true
     elsif array[midpoint] > value_to_find
       midpoint = (length - midpoint) / 2
     elsif array[midpoint] < value_to_find
       midpoint = (length + midpoint) / 2
     end
-    count +=1
   end
 
-  puts count
   return false
 end
 
