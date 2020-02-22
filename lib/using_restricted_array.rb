@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - amount of times it runs depends on the amount of items in the array
+# Space complexity: O(1) - the number of variables being tracked (count) does not change based on input size
 def length(array)
   count = 0
 
@@ -19,8 +19,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - amount of times it runs depends on the amount of items in the array
+# Space complexity: O(1) - the number of variables being tracked does not change based on input size
 def print_array(array)
   length(array).times do |i|
     puts array[i]
@@ -29,8 +29,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - amount of times it runs depends on the length provided
+# Space complexity: O(1) - the number of variables being tracked does not change based on input size
 def search(array, length, value_to_find)
   length.times do |i|
     return true if array[i] == value_to_find
@@ -40,8 +40,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - since array is not sorted, number of times loop runs depends on array length
+# Space complexity: O(1) - one variable (max) is tracked regardless of input
 def find_largest(array, length)
   max = array[0]
 
@@ -56,8 +56,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - since array is unsorted, number of times loop runs is dependant on array and length
+# Space complexity: O(1) - only one variable is tracked (min) regardless of input
 def find_smallest(array, length)
   min = array[0]
 
@@ -71,8 +71,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) - number of times program runs is dependant on input
+# Space complexity: O(1) - same number of variables are tracked regardless of input
 def reverse(array, length)
   first = 0
   last = length - 1
@@ -88,9 +88,9 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(logn)
-  # if searching for min or max value, time complexity: O(1)
-# Space complexity: O(1)
+# Time complexity: O(logn) - the program cuts down the amount of items to check each time it loops through, therefore is logarithmic
+  # if searching for min or max value, time complexity: O(1) because it can grab the value by index (0 or length-1)
+# Space complexity: O(1) - amount of variables stored is the same regardless of input
 def binary_search(array, length, value_to_find)
   midpoint = length / 2
 
