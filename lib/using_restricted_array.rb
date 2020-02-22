@@ -6,56 +6,109 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - amount of times it runs depends on the amount of items in the array
+# Space complexity: O(1) - the number of variables being tracked (count) does not change based on input size
 def length(array)
-  raise NotImplementedError
+  count = 0
+
+  until array[count] == nil
+    count += 1
+  end
+
+  return count
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - amount of times it runs depends on the amount of items in the array
+# Space complexity: O(1) - the number of variables being tracked does not change based on input size
 def print_array(array)
-  raise NotImplementedError
+  length(array).times do |i|
+    puts array[i]
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - amount of times it runs depends on the length provided
+# Space complexity: O(1) - the number of variables being tracked does not change based on input size
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |i|
+    return true if array[i] == value_to_find
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - since array is not sorted, number of times loop runs depends on array length
+# Space complexity: O(1) - one variable (max) is tracked regardless of input
 def find_largest(array, length)
-  raise NotImplementedError
+  max = array[0]
+
+  length.times do |i|
+    if array[i] > max
+      max = array[i]
+    end
+  end
+
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - since array is unsorted, number of times loop runs is dependant on array and length
+# Space complexity: O(1) - only one variable is tracked (min) regardless of input
 def find_smallest(array, length)
-  raise NotImplementedError
+  min = array[0]
+
+  length.times do |i|
+    if array[i] < min
+      min = array[i]
+    end
+  end
+
+  return min
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) - number of times program runs is dependant on input
+# Space complexity: O(1) - same number of variables are tracked regardless of input
 def reverse(array, length)
-  raise NotImplementedError
+  first = 0
+  last = length - 1
+
+  while first < last
+    first_item = array[first]
+    array[first] = array[last]
+    array[last] = first_item
+    first += 1
+    last -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn) - the program cuts down the amount of items to check each time it loops through, therefore is logarithmic
+  # if searching for min or max value, time complexity: O(1) because it can grab the value by index (0 or length-1)
+# Space complexity: O(1) - amount of variables stored is the same regardless of input
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  midpoint = length / 2
+
+  if array[0] == value_to_find || array[length-1] == value_to_find
+    return true
+  end
+
+  midpoint.times do |i|
+    if array[midpoint] == value_to_find
+      return true
+    elsif array[midpoint] > value_to_find
+      midpoint = (length - midpoint) / 2
+    elsif array[midpoint] < value_to_find
+      midpoint = (length + midpoint) / 2
+    end
+  end
+
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
