@@ -6,56 +6,116 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), because we need to loop through each element of the array.
+# Space complexity: O(1), because we don't create a new data structure, thus we are not taking more memory.
 def length(array)
-  raise NotImplementedError
+ current_index = 0
+
+  while (array[current_index] != nil)
+    current_index += 1
+  end
+
+  return current_index
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), because we need to loop through each element of the array.
+# Space complexity: O(1), because we are not creating additional array, we are just printing the values.
 def print_array(array)
-  raise NotImplementedError
+  array.length.times do |i|
+    print array[i]
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), because in the worst case scenario we will need to loop through the entire array 
+# to find out whether the value is present in the array or not.
+# Space complexity: O(1), because we don't create a new array, we are just returning true or false.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |i|
+    if array[i] == value_to_find
+      return true
+    end
+  end
+
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n),because in the worst case scenario we will need to loop through the entire array 
+# to find the largest number.
+# Space complexity: O(1), because we don't create a new array, we are just returning the largest integer.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest_integer = array[0]
+  length.times do |i|
+    if largest_integer < array[i]
+      largest_integer = array[i]
+    end
+  end
+
+  return largest_integer
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), because in the worst case scenario we will need to loop through the entire array 
+# to find the smallest number.
+# Space complexity: O(1), because we don't create a new array, we are just returning the smallest integer.
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest_integer = array[0]
+  length.times do |i|
+    if smallest_integer > array[i]
+      smallest_integer = array[i]
+    end
+  end
+
+  return smallest_integer
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n): we need to loop through half of the array, but since we drop the constants,
+# the end result will be O(n).
+# Space complexity: O(1), because we are reversing an array in place, thus we are not creating a new one.
 def reverse(array, length)
-  raise NotImplementedError
+  first_index = 0
+  last_index = length - 1
+
+  while first_index < last_index
+    temp = array[first_index]
+    array[first_index] = array[last_index]
+    array[last_index] = temp
+
+    first_index += 1
+    last_index -= 1
+  end
+
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n), because if we double the input, tit will take the algorith one step more
+# to find the value we are looking for.
+# Space complexity: O(1), since we are not creating a new data structure, we are just returning true or false.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  min_index = array[0]
+  max_index = length - 1
+
+  while min_index <= max_index
+    mid_index = (max_index + min_index) / 2
+
+    if array[mid_index] == value_to_find
+      return true
+    elsif mid_index < value_to_find
+      min_index = mid_index + 1
+    elsif mid_index > value_to_find
+      max_index = mid_index - 1
+    end
+  end
+
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
