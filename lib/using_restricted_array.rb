@@ -4,27 +4,55 @@ require_relative 'restricted_array.rb'
 # All values are integers in the range of 1-221.
 # RestrictedArray cannot be resized.
 
-# Calculates the length of the restricted array. All values are integers.
+# 1. Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
-def length(array)
-  raise NotImplementedError
+
+# Time complexity: O(n) => Because it loops through depending on the input size (array size)
+# Space complexity: O(1)
+def length(array) 
+  size = 0
+
+  while array[size] != nil 
+    size += 1  
+  end 
+
+  return size 
 end
 
-# Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
-def print_array(array)
-  raise NotImplementedError
+
+# 2. Prints each integer values in the array
+
+# Time complexity: O(n) => Because it loops through depending on the input size (array size)
+# Space complexity: O(1)
+def print_array(array) 
+  i = 0
+
+  while array[i] != nil 
+    print array[i]
+    print " "
+    i += 1
+  end 
+  puts
 end
 
-# For an unsorted array, searches for 'value_to_find'.
+
+# 3. For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(n) => Because it loops through depending on the input size (array size)
+# Space complexity: O(1)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+
+  # edge case
+  return false if length == 0
+
+  i = 0
+  while i < length 
+    return true if array[i] == value_to_find 
+    i += 1
+  end 
+
+  return false
 end
 
 # Finds and returns the largest integer value the array
