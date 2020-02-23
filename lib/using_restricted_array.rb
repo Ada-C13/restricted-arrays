@@ -7,8 +7,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: O(n) => n is the size of the input
-# Space complexity: O(1)
+# Time complexity: O(n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def length(array)
   index = 0
   while array[index] != nil
@@ -18,8 +18,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def print_array(array)
   index = 0
   while array[index] != nil
@@ -30,8 +30,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def search(array, length, value_to_find)
   length.times do |index|
     if array[index] == value_to_find
@@ -43,8 +43,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def find_largest(array, length)
   larget_num = array[0]
   length.times do |index|
@@ -57,8 +57,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def find_smallest(array, length)
   smallest_num = array[0]
   length.times do |index|
@@ -70,8 +70,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(log n) b/c the loop is depending on the input size (n is the size of the array)
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def reverse(array, length)
   first_index = 0
   last_index = length - 1
@@ -87,8 +87,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(logn)
-# Space complexity: O(1)
+# Time complexity: O(log n) b/c we filter out half of the data in each iteration. 
+# Space complexity: O(1) b/c we are accessing the same array without creating a new one.
 def binary_search(array, length, value_to_find)
   min = 0
   max = length - 1
