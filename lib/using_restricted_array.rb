@@ -120,7 +120,7 @@ def reverse(array, length)
 end
 
 
-# 6. For an array sorted in ascending order, searches for 'value_to_find'.
+# 7. For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(log n) => Because after each iteration, half of the remaining elements are eliminated
 # Space complexity: O(1)
