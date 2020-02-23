@@ -111,7 +111,7 @@ end
 # Space complexity: O(1) - constant
 def binary_search(array, length, value_to_find)
   low = 0
-  high = (length - 1)
+  high = length
   if length == 0
     return false
   end
