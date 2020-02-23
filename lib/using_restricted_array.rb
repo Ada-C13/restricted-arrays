@@ -7,7 +7,7 @@ require_relative 'restricted_array.rb'
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def length(array)
   index = 0
   while array[index] != nil
@@ -18,7 +18,7 @@ end
 
 # Prints each integer values in the array
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def print_array(array)
   index = 0
   while array[index] != nil
@@ -29,7 +29,7 @@ end
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def search(array, length, value_to_find)
   length.times do |index|
     if array[index] == value_to_find
@@ -42,7 +42,7 @@ end
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def find_largest(array, length)
   max_element = array[0]
   length.times do |index|
@@ -56,7 +56,7 @@ end
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def find_smallest(array, length)
   min_element = array[0]
   length.times do |index|
@@ -69,7 +69,7 @@ end
 
 # Reverses the values in the integer array in place
 # Time complexity: O(n) linear where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def reverse(array, length)
   first_index = 0
   last_index = (length - 1)
@@ -88,7 +88,7 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(logn) logarithmic where n stands for the number of elements in the array 
-# Space complexity: O(1) constant space needed does not depend on the size of data
+# Space complexity: O(1) constant space does not depend on the size of data
 def binary_search(array, length, value_to_find)
   low = 0
   high = length - 1
