@@ -87,10 +87,23 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  min = 0
+  max = length - 1
+  guess = (min + max) / 2
+  until array[guess] == value_to_find
+    if max < min
+      return false
+    elsif array[guess] < value_to_find
+      min = guess + 1
+    elsif array[guess] > value_to_find
+      max = guess - 1
+    end
+    guess = (min + max) / 2
+  end
+  return true
 end
 
 # Helper method provided to sort the array in ascending order
@@ -128,10 +141,7 @@ end
 
 
 
-# a = [1,3,2,2,4]
-# p long = length(a)
-# printer = print_array(a)
-# p is_there_nine = reverse([1,2,3,4,5], 5)
+
 
 
 
