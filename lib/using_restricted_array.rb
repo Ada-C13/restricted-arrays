@@ -91,8 +91,8 @@ end
 # Space complexity: O(1) constant space does not depend on the size of data
 def binary_search(array, length, value_to_find)
   low = 0
-  high = length - 1
-  while (low < high)
+  high = length - 1  #could instead assign total length value to avoid cases mid not reaching last index
+  while low < high
     mid = (high + low) / 2
     if array[mid] == value_to_find
       return true
@@ -103,8 +103,8 @@ def binary_search(array, length, value_to_find)
     end
   end
 
-  return true if array[high] == value_to_find
-  return true if array[low] == value_to_find
+  return true if array[high] == value_to_find #in cases where mid is unable to reach last index due to integer calculation
+  return true if array[low] == value_to_find #in case of 1 element array and includes value to find
   return false
 end
 
