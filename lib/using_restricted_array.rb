@@ -10,9 +10,11 @@ require_relative 'restricted_array.rb'
 # Space complexity: O(1) constant space does not depend on the size of data
 def length(array)
   index = 0
+
   while array[index] != nil
     index += 1
   end
+
   return index
 end
 
@@ -21,9 +23,11 @@ end
 # Space complexity: O(1) constant space does not depend on the size of data
 def print_array(array)
   index = 0
+
   while array[index] != nil
     print "#{array[index]} "
   end
+
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -36,6 +40,7 @@ def search(array, length, value_to_find)
       return true
     end
   end
+
   return false
 end
 
@@ -45,11 +50,13 @@ end
 # Space complexity: O(1) constant space does not depend on the size of data
 def find_largest(array, length)
   max_element = array[0]
+
   length.times do |index|
     if array[index] > max_element
       max_element = array[index]
     end
   end
+
   return max_element
 end
 
@@ -59,11 +66,13 @@ end
 # Space complexity: O(1) constant space does not depend on the size of data
 def find_smallest(array, length)
   min_element = array[0]
+
   length.times do |index|
     if array[index] < min_element
       min_element = array[index]
     end
   end
+
   return min_element
 end
 
@@ -91,8 +100,9 @@ end
 # Space complexity: O(1) constant space does not depend on the size of data
 def binary_search(array, length, value_to_find)
   low = 0
-  high = length - 1  #could instead assign total length value to avoid cases mid not reaching last index
-  while low < high
+  high = length - 1
+
+  while low <= high 
     mid = (high + low) / 2
     if array[mid] == value_to_find
       return true
@@ -102,11 +112,27 @@ def binary_search(array, length, value_to_find)
       high = mid - 1
     end
   end
-
-  return true if array[high] == value_to_find #in cases where mid is unable to reach last index due to integer calculation
-  return true if array[low] == value_to_find #in case of 1 element array and includes value to find
+  
   return false
 end
+
+# alternative solution for binary search
+# def binary_search(array, length, value_to_find)
+#   low = 0
+#   high = length  #using length instead, assuming my valid search zone is low to (high - 1)
+#   # it is sometimes common to use length instead to avoid not reaching the last index
+#   while low < high 
+#     mid = (high + low) / 2
+#     if array[mid] == value_to_find
+#       return true
+#     elsif array[mid] < value_to_find
+#       low = mid + 1
+#     elsif array[mid] > value_to_find
+#       high = mid  #same assumption as my actual search zone is low to (high - 1)
+#     end
+#   end
+#   return false
+# end
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
