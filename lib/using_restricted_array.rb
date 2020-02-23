@@ -97,20 +97,58 @@ def find_smallest(array, length)
   return min
 end
 
-# Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+
+# 6. Reverses the values in the integer array in place
+# *in plance: it means "not using extra memory"
+
+# Time complexity: O(n) => Because it is a n/2 of the loop and it drops the constants (2)
+# Space complexity: O(1) => Because you just modified the original array
 def reverse(array, length)
-  raise NotImplementedError
+  i = 0 
+  j = length - 1
+
+  while i < j 
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+
+    i += 1 
+    j -= 1
+  end 
+
+  return array
 end
 
-# For an array sorted in ascending order, searches for 'value_to_find'.
+
+# 6. For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) => Because after each iteration, half of the remaining elements are eliminated
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  # edge case 
+  return nil if length == 0 
+
+  # "low, high, mid" indicate index
+  low =  0
+  high = length - 1
+
+  # it's important to include "equal to (=)" comparison to check the last element of the array
+  while low <= high  
+    mid = (low + high) / 2
+
+    if value_to_find == array[mid]
+      return true
+    elsif value_to_find < array[mid]
+      # eliminate the right half of the array 
+      high = mid - 1 
+    elsif value_to_find > array[mid]
+      # elimiate the left half of the array 
+      low = mid + 1  # low = 2
+    end  
+  end 
+  return false
 end
+
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
