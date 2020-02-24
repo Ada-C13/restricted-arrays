@@ -1,4 +1,4 @@
-require_relative 'restricted_array.rb'
+require_relative "restricted_array.rb"
 # RestrictedArray can be created using a specified size, or a random size in
 # the range of 1-20 will be chosen for you.
 # All values are integers in the range of 1-221.
@@ -6,56 +6,116 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: ? O(n) Because it loops through based on the input size (array size)
+# Space complexity: ? O(1)
 def length(array)
-  raise NotImplementedError
+  size = 0
+
+  while array[size] != nil
+    size += 1
+  end
+  return size
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+
+  while array[i] != nil
+    print array[i]
+    print " "
+    i += 1
+  end
+  puts
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  return false if length == 0
+
+  i = 0
+  while i < length
+    return true if array[i] == value_to_find
+    i += 1
+  end
+
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  i = 1
+  max = array[0]
+  while i < length(array)
+    max = array[i] if array[i] > max
+    i += 1
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  min = array[0]
+  i = 1
+
+  while i < length(array)
+    min = array[i] if array[i] < min
+    i += 1
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1) modifying the original array
 def reverse(array, length)
-  raise NotImplementedError
+  first_index = 0
+  last_index = length - 1
+  while first_index < last_index
+    temp = array[first_index]
+    array[first_index] = array[last_index]
+    array[last_index] = temp
+    first_index += 1
+    last_index -= 1
+  end
+  return
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(log n)
+# Space complexity: ? O(1)
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  mid_point = length / 2
+  mid = array[mid_point]
+  counter = 0
+
+  until mid == value_to_find || counter > length
+    if mid > value_to_find
+      mid_point = mid_point / 2
+    else
+      mid_point = (length - mid_point) / 2 + mid_point
+    end
+
+    mid = array[mid_point]
+    counter += 1
+  end
+
+  mid == value_to_find
 end
 
 # Helper method provided to sort the array in ascending order
@@ -75,7 +135,7 @@ end
 def sort(array, length)
   length.times do |index| # outer loop - n elements
     min_index = index # assume index is where the next minimally value is
-    temp_index = index+1 # compare with values at index+1 to length-1
+    temp_index = index + 1 # compare with values at index+1 to length-1
     while temp_index < length # inner loop - n-1 elements
       if array[temp_index] < array[min_index] # found a new minimum, update min_index
         min_index = temp_index
@@ -89,4 +149,5 @@ def sort(array, length)
     end
   end
 end
+
 ## --- END OF METHODS ---
