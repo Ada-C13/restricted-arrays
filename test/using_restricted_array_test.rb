@@ -1,8 +1,9 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
+require 'minitest/skip_dsl'
 require_relative '../lib/restricted_array'
 require_relative '../lib/using_restricted_array'
-
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 describe "restricted array" do
   it "length method" do
     # Arrange
