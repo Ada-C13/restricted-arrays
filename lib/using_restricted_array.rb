@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require_relative 'restricted_array.rb'
 # RestrictedArray can be created using a specified size, or a random size in
