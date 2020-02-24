@@ -14,7 +14,6 @@ def length(array)
     length += 1
   end
   return length
-  #raise NotImplementedError
 end
 
 # Prints each integer values in the array
@@ -26,7 +25,6 @@ def print_array(array)
     puts array.[](index)
     index += 1
   end
-  #raise NotImplementedError
 end
 
 # For an unsorted array, searches for 'value_to_find'.
@@ -42,7 +40,6 @@ def search(array, length, value_to_find)
   index +=1
 end
 return false
-  #raise NotImplementedError
 end
 
 # Finds and returns the largest integer value the array
@@ -59,7 +56,6 @@ def find_largest(array, length)
     index +=1
   end
   return largest
-  #raise NotImplementedError
 end
 
 # Finds and returns the smallest integer value in the array
@@ -76,7 +72,6 @@ def find_smallest(array, length)
     index +=1
   end
   return smallest
-  #raise NotImplementedError
 end
 
 # Reverses the values in the integer array in place
@@ -94,7 +89,6 @@ def reverse(array, length)
     index_last -= 1
     x +=1
   end
-  #raise NotImplementedError
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
@@ -102,7 +96,6 @@ end
 # Time complexity: O(log n)
 # Space complexity = constant or O(1) since the additional storage needed
 def binary_search(array, length, value_to_find)
-  #raise NotImplementedError
   min = 0 
   max = length -1 
   while min<max
