@@ -94,7 +94,7 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n)N represents the number of elements in the array.
+# Time complexity: O(log(n))N represents the number of elements in the array.
     # The run time will depend on how many elements are in the array
 # Space complexity: O(1) The program will return true or fall no matter the size of the array.
 def binary_search(array, length, value_to_find)
