@@ -19,7 +19,6 @@ end
 # Prints each integer values in the array
 # Time complexity: O(n)
 # Space complexity: O(1)
-
 def print(array)
   index = 0
   until array[index] == nil
@@ -81,7 +80,7 @@ end
 
 # Reverses the values in the integer array in place
 # Time complexity: O(n)
-# Space complexity: O(n)
+# Space complexity: O(1)
 def reverse(array, length)
   reversed_array = array
   first_index = 0
@@ -102,7 +101,7 @@ end
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: O(logn)
-# Space complexity: O(n)
+# Space complexity: O(1)
 def binary_search(array, length, value_to_find)
   low = 0
   high = length - 1
@@ -116,7 +115,7 @@ def binary_search(array, length, value_to_find)
     elsif array[middle] < value_to_find
       low = middle + 1
     end
-
+    
     if array[low] == value_to_find
       return true
     end
