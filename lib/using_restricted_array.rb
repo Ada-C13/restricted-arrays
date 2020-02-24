@@ -20,8 +20,8 @@ puts length([1,2,3,4])
 
 #********************************************************
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(1)
 def print_array(array)
   string =  "#{array[0]}"
   i = 1
@@ -36,8 +36,8 @@ puts print_array([4,5,6,7])
 #********************************************************
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(1)
 def search(array, length, value_to_find)
   length.times do |i|
     if array[i] == value_to_find
@@ -51,8 +51,8 @@ puts search([7,8,9,0], 4, 7)
 #********************************************************
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(1)
 def find_largest(array, length)
   largest = array[0]
   (length - 1).times do |i|
@@ -67,8 +67,8 @@ puts find_largest([2,4,6,8], 4)
 #********************************************************
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(1)
 def find_smallest(array, length)
   smallest = array[0]
   (length - 1).times do |i|
@@ -82,8 +82,8 @@ end
 puts find_smallest([2,4,6,8], 4)
 #********************************************************
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n-2)
+# Space complexity: 0(1)
 def reverse(array, length)
   reversed_array = RestrictedArray.new(length)
   length.times do |i|
@@ -99,8 +99,8 @@ puts reverse([2,4,6,8], 4)
 #********************************************************
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(logn)
+# Space complexity: 0(1)
 def binary_search(array, length, value_to_find)
   lowest_number = 0
   highest_number = length
