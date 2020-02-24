@@ -6,7 +6,7 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: o(n)
+# Time complexity: O(n)
 # Space complexity: O(1)
 def length(array)
   #intialize variables
@@ -18,8 +18,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def print_array(array)
   i = 0
   while array[i] != nil 
@@ -30,8 +30,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+#Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, length, value_to_find)
   length.times do |index|
     if array[index] == value_to_find
@@ -43,8 +43,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+#Time complexity: O(n)
+# Space complexity: O(1)
 def find_largest(array, length)
   return nil if length == 0
   highest_value = array[0]
@@ -58,8 +58,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+#Time complexity: O(n)
+# Space complexity: O(1)
 def find_smallest(array, length)
   return nil if length == 0
   smallest_value = array[0]
@@ -72,8 +72,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+#Time complexity: O(n)
+# Space complexity: O(1)
 def reverse(array, length)
   raise NotImplementedError if length == 0
   first_index = 0
@@ -89,8 +89,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn)
+# Space complexity: O(n)
 def binary_search(array, length, value_to_find)
   #retrun nil if length > 1
   low = 0
