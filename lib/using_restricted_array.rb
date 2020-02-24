@@ -7,7 +7,7 @@ require_relative "restricted_array.rb"
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
 
-# Time complexity: ? O(n) Because it loops through depending on the input size (array size)
+# Time complexity: ? O(n) Because it loops through based on the input size (array size)
 # Space complexity: ? O(1)
 def length(array)
   size = 0
@@ -19,10 +19,9 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def print_array(array)
-  #raise NotImplementedError
   i = 0
 
   while array[i] != nil
@@ -35,8 +34,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def search(array, length, value_to_find)
   return false if length == 0
 
@@ -51,8 +50,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def find_largest(array, length)
   return nil if length == 0
   i = 1
@@ -66,8 +65,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: ? O(n)
+# Space complexity: ? O(1)
 def find_smallest(array, length)
   return nil if length == 0
   min = array[0]
