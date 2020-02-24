@@ -16,6 +16,9 @@ def length(array)
   return i
 end
 
+puts length([1,2,3,4])
+
+#********************************************************
 # Prints each integer values in the array
 # Time complexity: ?
 # Space complexity: ?
@@ -29,6 +32,8 @@ def print_array(array)
   puts string
 end
 
+puts print_array([4,5,6,7])
+#********************************************************
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: ?
@@ -42,6 +47,8 @@ def search(array, length, value_to_find)
   return false
 end
 
+puts search([7,8,9,0], 4, 7)
+#********************************************************
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
 # Time complexity: ?
@@ -56,6 +63,8 @@ def find_largest(array, length)
   return largest
 end
 
+puts find_largest([2,4,6,8], 4)
+#********************************************************
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
 # Time complexity: ?
@@ -70,6 +79,8 @@ def find_smallest(array, length)
   return smallest
 end
 
+puts find_smallest([2,4,6,8], 4)
+#********************************************************
 # Reverses the values in the integer array in place
 # Time complexity: ?
 # Space complexity: ?
@@ -79,11 +90,13 @@ def reverse(array, length)
     reversed_array[i] = array[length - 1 - i]
   end
   length.times do |i|
-    array[i] = = reversed_array[i]
+    array[i] = reversed_array[i]
   end
   return array
 end
 
+puts reverse([2,4,6,8], 4)
+#********************************************************
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
 # Time complexity: ?
@@ -106,6 +119,8 @@ def binary_search(array, length, value_to_find)
   return false
 end
 
+puts binary_search([2,4,6,8], 4, 0)
+#********************************************************
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
 # Time complexity = O(n^2), where n is the number of elements in the array.
