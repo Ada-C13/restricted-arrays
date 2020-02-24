@@ -27,7 +27,7 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: O(n), the loop requires n operations depending on the argument passed through for length.
+# Time complexity: O(n), the loop requires n operations depending on the value of length.
 # Space complexity: O(1), only one variable (length) is needed to track the current index, so the space is constant regardless of input size.
 def search(array, length, value_to_find)
   length.times do |i|
@@ -38,10 +38,14 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the loop requires n operations depending on the value of length.
+# Space complexity: O(1), only one variable is needed to track the largest integer value, so the space is constant regardless of input size.
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = array[0]
+  length.times do |i|
+    array[i] > largest ? (largest = array[i]) : next
+  end
+  return largest
 end
 
 # Finds and returns the smallest integer value in the array
