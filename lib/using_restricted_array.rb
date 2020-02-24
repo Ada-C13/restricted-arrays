@@ -6,8 +6,8 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: O(n)
-# Space complexity: O(1)
+# Time complexity: O(n), only looping over structure once 
+# Space complexity: O(1), no additional storage space needed
 def length(array)
   index = 0
   length = 0
@@ -19,8 +19,8 @@ def length(array)
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure once
+# Space complexity: O(1), no additional storage space needed
 def print_array(array)
   counter = 0
   while array[counter] != nil
@@ -31,8 +31,8 @@ end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def search(array, length, value_to_find)
   index = 0
   while array[index] != nil 
@@ -47,8 +47,8 @@ end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def find_largest(array, length)
   largest = 0
   length.times do |index|
@@ -61,8 +61,8 @@ end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def find_smallest(array, length)
   smallest = 0
   length.times do |index|
@@ -74,8 +74,8 @@ def find_smallest(array, length)
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through the structure half the times of its size
+# Space complexity: O(1), no additional structures created
 def reverse(array, length)
   left = 0
   right = length-1
@@ -90,8 +90,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) because worst case scenario we have to do full n number of iterations but array size is halved each iteration
+# Space complexity: O(1), no additional data structures creatured 
 def binary_search(array, length, value_to_find)
   left_marker = 0
   right_marker = length-1
