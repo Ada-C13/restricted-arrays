@@ -6,57 +6,132 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def length(array)
-  raise NotImplementedError
+  curr_index = 0
+  while (array[curr_index] != nil)
+    curr_index += 1
+  end
+  return curr_index
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def print_array(array)
-  raise NotImplementedError
+  curr_index = 0
+  while (array[curr_index] != nil)
+    print array[curr_index]
+    curr_index += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |item|
+    if array[item] == value_to_find
+      return true
+    end
+  end
+  return false
 end
 
-# Finds and returns the largest integer value the array
-# Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# For an unsorted array, finds and returns the largest integer value in the array
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def find_largest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  end
+  max = array[0]
+  length.times do |item|
+    if array[item] > max
+      max = array[item]
+    end
+  end
+  return max
 end
 
-# Finds and returns the smallest integer value in the array
-# Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# For an unsorted array, finds and returns the smallest integer value in the array
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def find_smallest(array, length)
-  raise NotImplementedError
+  if length == 0
+    return nil
+  end
+  smallest = array[0]
+  length.times do |item|
+    if array[item] < smallest
+      smallest = array[item]
+    end
+  end
+  return smallest
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), where n is the number of elements in the array
+# Space complexity: O(1)
 def reverse(array, length)
-  raise NotImplementedError
+  first = 0
+  last = length - 1
+
+  while first < last
+    temp = array[first]
+    array[first] = array[last]
+    array[last] = temp
+    first += 1
+    last -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n), where n is the number of elements in the array
+# Space complexity: O(1)
+
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0
+    return false
+  end
+
+  low = 0
+  high = length - 1
+  while low <= high
+    # instead of (high + low) / 2, prevent overflow
+    mid_index = (high - low) / 2 + low
+    if array[mid_index] == value_to_find
+      return true
+    elsif array[mid_index] < value_to_find
+      low = mid_index + 1
+    elsif array[mid_index] > value_to_find
+      high = mid_index - 1
+    end
+  end
+  return false
 end
+
+# recursive solution
+# def binary_search(array, length, value_to_find)
+#   return recursive_binary_search(0, length - 1, array, value_to_find)
+# end
+
+# def recursive_binary_search(low, high, array, value_to_find)
+#   if low > high
+#     return false
+#   end
+#   mid = (low + high) / 2
+#   if array[mid] == value_to_find
+#     return true
+#   elsif array[mid] < value_to_find
+#     return recursive_binary_search(mid + 1, high, array, value_to_find)
+#   else
+#     return recursive_binary_search(low, mid - 1, array, value_to_find)
+#   end
+# end
 
 # Helper method provided to sort the array in ascending order
 # Implements selection sort
