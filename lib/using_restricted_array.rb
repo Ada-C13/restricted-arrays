@@ -6,56 +6,119 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n) - need to go through the data one by one
+# Space complexity: O(1)- didn't create any extra array
 def length(array)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil 
+    index += 1
+  end
+  return index
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n) - need to go through the data one by one
+# Space complexity: O(1) - didn't create any extra array
 def print_array(array)
-  raise NotImplementedError
+  array_length = length(array)
+  array_length.times do |integer|
+    print integer
+  end  
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n) - need to go through the data one by one
+# Space complexity: O(1)  - didn't create any extra array
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  length.times do |index|
+    if array[index] == value_to_find
+      return true
+    end
+  end
+
+  return false  
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n) - need to go through the data one by one since it is not sorted
+# Space complexity: 0(1)  - didn't create any extra array
 def find_largest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  max = array[0]
+  length.times do |index|
+    if array[index] > max
+      max = array[index]
+    end
+  end
+  return max
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n)  - need to go through the data one by one since it is not sorted
+# Space complexity: O(1) - didn't create any extra array
 def find_smallest(array, length)
-  raise NotImplementedError
+  return nil if length == 0
+  min = array[0]
+  length.times do |index|
+    if array[index] < min
+      min = array[index]
+    end
+  end
+  return min
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(n)
+# Space complexity: O(1)
+
 def reverse(array, length)
-  raise NotImplementedError
+  first_index = 0 
+  last_index = length -1
+  while first_index < last_index 
+    temp = array[first_index]
+    array[first_index] = array[last_index]
+    array[last_index] = temp
+    first_index += 1 
+    last_index -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+
+# where n is the number of elements in the array.
+# Time complexity: O(log2 n) - since it is a binary search ,  eliminating half of the remaining pages in each step after repeating the process of opening a page to somewhere in the middle of valid pages and comparing. 
+# Space complexity: O(1) - no extra is created
+
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  smallIndex = 0 #0
+    largeIndex = length - 1 #9
+    while (smallIndex <= largeIndex)
+      middle = (smallIndex + largeIndex) / 2 #4, value = 5
+      if array[middle] == value_to_find
+        return true
+      elsif value_to_find < array[middle]
+        largeIndex = middle - 1
+      elsif value_to_find > array[middle]
+        smallIndex = middle + 1
+      end
+    end
+    return false
 end
 
 # Helper method provided to sort the array in ascending order
