@@ -87,8 +87,8 @@ end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n), the loop requires log n operations depending on the value of length. This means that at each step of the operation, half of the elements in the array are eliminated.
+# Space complexity: O(1), the number of varibles tracked does not change, so the space is constant regardless of input size.
 def binary_search(array, length, value_to_find)
   low = 0
   high = length - 1
