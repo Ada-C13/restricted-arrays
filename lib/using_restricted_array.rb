@@ -26,9 +26,8 @@ def print_array(array)
   while array[length] != nil
     length += 1
   end
-
   length.times do |index|
-    p array[index]
+    print array[index]
   end  
   # raise NotImplementedError
 end
@@ -96,7 +95,6 @@ def reverse(array, length)
      i += 1
      j -= 1
     end
- 
   return array
   # raise NotImplementedError
 end
@@ -109,13 +107,12 @@ end
 def binary_search(array, length, value_to_find)
   # Is the beggining of the array
 low = 0
-# The highest value into the array
+# The last value into the array
 hight = length - 1
 
     # As long as the low value is less or equal the while loop is going to run. 
     while low <= hight
         # Is the middle index into the array, is rounded down. 
-        
         middle = (low + hight) / 2
         # If the value in the middle is equal to the guess number return true. 
         if array[middle] == value_to_find
