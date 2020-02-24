@@ -6,56 +6,108 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), only looping over structure once 
+# Space complexity: O(1), no additional storage space needed
 def length(array)
-  raise NotImplementedError
+  index = 0
+  length = 0
+  while array[index] != nil
+    length += 1
+    index +=1 
+  end 
+  return length
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure once
+# Space complexity: O(1), no additional storage space needed
 def print_array(array)
-  raise NotImplementedError
+  counter = 0
+  while array[counter] != nil
+    puts array[counter]
+    counter += 1
+  end
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  index = 0
+  while array[index] != nil 
+    if array[index] == value_to_find
+      return true
+    else
+      index +=1
+    end
+  end
+  return false
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def find_largest(array, length)
-  raise NotImplementedError
+  largest = 0
+  length.times do |index|
+    if array[index] > array[largest]
+      largest = index
+    end
+  end
+  return array[largest] 
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through structure only once
+# Space complexity: O(1), no additional structures created
 def find_smallest(array, length)
-  raise NotImplementedError
+  smallest = 0
+  length.times do |index|
+    if array[index] < array[smallest]
+      smallest = index
+    end
+  end
+  return array[smallest]
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), loops through the structure half the times of its size
+# Space complexity: O(1), no additional structures created
 def reverse(array, length)
-  raise NotImplementedError
+  left = 0
+  right = length-1
+  while left < right do 
+    temp = array[left]
+    array[left] = array[right]
+    array[right] = temp
+    left += 1
+    right -= 1
+  end
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n) because worst case scenario we have to do full n number of iterations but array size is halved each iteration
+# Space complexity: O(1), no additional data structures creatured 
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  left_marker = 0
+  right_marker = length-1
+  pivot = length/2
+  while left_marker <= right_marker 
+    if array[pivot] == value_to_find
+      return true
+    elsif array[pivot] < value_to_find #value is somewhere on the right
+      left_marker = pivot + 1
+      pivot = (left_marker + right_marker) / 2
+    else #value is somewhere on the left
+      right_marker = pivot - 1
+      pivot = (left_marker + right_marker) / 2
+    end
+  end
+  return false
 end
 
 # Helper method provided to sort the array in ascending order
