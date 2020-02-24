@@ -10,9 +10,11 @@ require_relative 'restricted_array.rb'
 # Space complexity: O(1), only one variable (length) is needed to track the current index, so the space is constant regardless of input size.
 def length(array)
   length = 0
+
   until array[length] == nil
     length += 1
   end
+
   return length
 end
 
@@ -33,6 +35,7 @@ def search(array, length, value_to_find)
   length.times do |i|
     return true if array[i] == value_to_find
   end
+
   return false
 end
 
@@ -42,9 +45,11 @@ end
 # Space complexity: O(1), only one variable is needed to track the largest integer value, so the space is constant regardless of input size.
 def find_largest(array, length)
   largest = array[0]
+
   length.times do |i|
     array[i] > largest ? (largest = array[i]) : next
   end
+
   return largest
 end
 
@@ -54,17 +59,30 @@ end
 # Space complexity: O(1), only one variable is needed to track the smallest integer value, so the space is constant regardless of input size.
 def find_smallest(array, length)
   smallest = array[0]
+
   length.times do |i|
     array[i] < smallest ? (smallest = array[i]) : next
   end
+
   return smallest
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n), the loop requires n operations depending on the value of length.
+# Space complexity: O(1), the number of varibles tracked does not change, so the space is constant regardless of input size.
 def reverse(array, length)
-  raise NotImplementedError
+  first_index = 0
+	last_index = length - 1
+
+	while first_index < last_index
+		temp = array[first_index]
+		array[first_index] = array[last_index]
+		array[last_index] = temp
+		first_index += 1
+		last_index -= 1
+  end
+  
+  return array
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
