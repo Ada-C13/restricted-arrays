@@ -6,56 +6,135 @@ require_relative 'restricted_array.rb'
 
 # Calculates the length of the restricted array. All values are integers.
 # The restricted_array is terminated by 'nil' i.e. array[length] = nil
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The operation in this method's loop will always run "n" number of times (where n = array length). 
+# Space complexity: O(1) -> The memory allocation this method requires does not change based on array size.  
 def length(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil
+    i += 1
+  end 
+  return i 
 end
 
 # Prints each integer values in the array
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The operation in this method's loop will always run "n" number of times (where n = array length). 
+# Space complexity: O(1) -> The memory allocation this method requires does not change based on array size.
 def print_array(array)
-  raise NotImplementedError
+  i = 0
+  until array[i] == nil 
+    puts array[i]
+  end 
 end
 
 # For an unsorted array, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The operations in this method's loop will always run "n" number of times (where n = array length). 
+# Space complexity: O(1) -> The memory allocation this method requires does not change based on array size.
 def search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0
+    return false
+  end
+
+  i = 0
+
+  length.times do 
+    if array[i] == value_to_find
+      return true
+    else
+      i += 1
+    end
+  end
+
+  return false 
 end
 
 # Finds and returns the largest integer value the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The operations in this method's loop will always run "n" number of times (where n = array length). 
+# Space complexity: O(1) -> The memory allocation this method requires does not change  based on array size.
 def find_largest(array, length)
-  raise NotImplementedError
+  i = 0
+  largest_value = array[i]
+  if length == 0
+    return nil 
+  else 
+    length.times do
+      if array[i] > largest_value
+        largest_value = array[i]
+      end 
+      i += 1
+    end
+  end
+  return largest_value 
 end
 
 # Finds and returns the smallest integer value in the array
 # Assumes that the array is not sorted.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The operations in this method's loop will always run "n" number of times (where n = array length).
+# Space complexity: O(1)  -> The memory allocation this method requires does not change based on array size.
 def find_smallest(array, length)
-  raise NotImplementedError
+  i = 0
+  smallest_value = array[i]
+  if length == 0
+    return nil 
+  else 
+    length.times do
+      if array[i] < smallest_value
+        smallest_value = array[i]
+      end 
+      i += 1
+    end
+  end
+  return smallest_value 
 end
 
 # Reverses the values in the integer array in place
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) -> The number of operations is actually n/2, but constants don't count so time complexity is O(n). 
+# Space complexity: O(1) -> Since the method is reversing in place, it is not creating new memory space. It is manipulating existing values instead of allocating new memory space for new values. 
 def reverse(array, length)
-  raise NotImplementedError
+  if length == 0
+    return  
+  end
+
+  i = 0
+  j = length - 1
+
+  while i < j
+    array[i], array[j] = array[j], array[i] # swap values using ruby syntax
+    i += 1
+    j -= 1
+  end 
 end
 
 # For an array sorted in ascending order, searches for 'value_to_find'.
 # Returns true if found, false otherwise.
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(logn) -> Everytime this method runs, the size of the array it is operating on is divided in half. Thus, it will run log₂n number of times instead of n times like the other methods in this file. 
+# Space complexity: O(1) -> The memory allocation this method requires does not change based on array size.
 def binary_search(array, length, value_to_find)
-  raise NotImplementedError
+  if length == 0
+    return false  
+  end
+
+  low = 0
+  high = length - 1
+  
+  while low < high 
+    mid = (low+high)/2
+    if array[mid] == value_to_find 
+      return true
+    elsif array[mid] > value_to_find
+      high = mid - 1
+    elsif array[mid] < value_to_find
+      low = mid + 1
+    end
+  end
+
+  if array[low] == value_to_find
+    return true
+  else 
+    return false
+  end 
+
 end
 
 # Helper method provided to sort the array in ascending order
